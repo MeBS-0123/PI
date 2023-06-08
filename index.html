@@ -47,7 +47,7 @@
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-bag-shopping"></i>
                     </a>
-                    <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                    <div id="carrito" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarCollapse">
                         <table id="lista-carrito" class="table">
                             <thead>
                             <tr>
@@ -60,8 +60,8 @@
                             <tbody></tbody>
                         </table>
 
-                        <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
-                        <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
+                        <a id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
+                        <a id="procesar-pedido" class="btn btn-danger btn-block">Procesar
                             Compra</a>
                     </div>
                 </li>
@@ -133,8 +133,8 @@
             <h2 class="section-heading text-uppercase">Catálogo</h2>
             <h3 class="section-subheading text-muted">Nuestros productos</h3>
         </div>
-        <div class="row" id="portafolio">
-            <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="row portafolio" id="lista-productos">
+            <div class="col-lg-4 col-sm-6 mb-4" >
                 <!-- Portfolio item 1-->
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
@@ -144,10 +144,11 @@
                         <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..."/>
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Jabón Líquido Envasado</div>
+                        <div class="portfolio-caption-heading"><h4>Jabón Líquido Envasado</h4></div>
                         <div class="portfolio-caption-subheading text-muted">Jabón liquido de Moringa 500ml en empaque
                             de vidrio reutilizable
                         </div>
+                        <h1 class="card-title pricing-card-title precio">S/. <span class="">5000</span></h1>
                         <button type="button" class="btn btn-success btn-compra agregar-carrito" data-id="1">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -170,8 +171,9 @@
                         <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="..."/>
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Jabón Líquido Embolsado</div>
+                        <div class="portfolio-caption-heading"><h4>Jabón Líquido Embolsado</h4></div>
                         <div class="portfolio-caption-subheading text-muted">Jabón</div>
+                        <h1 class="card-title pricing-card-title precio">S/. <span class="">5000</span></h1>
                         <button type="button" class="btn btn-success btn-compra agregar-carrito" data-id="2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -194,8 +196,9 @@
                         <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="..."/>
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Jabón Líquido Embolsado</div>
+                        <div class="portfolio-caption-heading"><h4>Jabón Líquido Embolsado</h4></div>
                         <div class="portfolio-caption-subheading text-muted">Jabón</div>
+                        <h1 class="card-title pricing-card-title precio">S/. <span class="">5000</span></h1>
                         <button type="button" class="btn btn-success btn-compra agregar-carrito" data-id="3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -677,5 +680,7 @@
 <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<script src="js/carrito.js"></script>
+<script src="js/pedido.js"></script>
 </body>
 </html>

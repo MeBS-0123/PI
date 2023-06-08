@@ -11275,11 +11275,12 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 /* Portfolio*/
-#portafolio {
+.portafolio {
   display: flex;
   justify-content: space-evenly !important;
 }
 .btn-compra{
+  background-color: #283618;
   margin: 1.5rem;
   width: 50%;
   border-radius: 100rem;
