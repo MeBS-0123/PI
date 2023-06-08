@@ -11164,10 +11164,13 @@ p {
 
 section#contact {
   background-color: #212529;
-  background-image: url("../assets/img/map-image.png");
+  background-image: url("../img/Contacto.jpg");
   background-repeat: no-repeat;
   background-position: center;
+  background-blend-mode: multiply;
+  background-color: rgba(33, 37, 41, 0.8);
 }
+
 section#contact .section-heading {
   color: #fff;
 }
@@ -11225,11 +11228,22 @@ section#contact form#contactForm :-ms-input-placeholder {
 /* Mis estilos propios */
 
 /* Header*/
+
+#header{
+  background-image: url("../img/Moringa.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-bottom: 5rem;
+  background-blend-mode: multiply;
+  background-color: rgba(33, 37, 41, 0.8);
+}	
+
 .header{
   padding-top: 5rem;
   display: grid;
   grid-template-columns: 50% 50%;
 }
+
 .icon-soap{
   height: 3rem;
 }
