@@ -42,7 +42,28 @@
                 <li class="nav-item"><a class="nav-link" href="#team">Seguimiento de Pedido</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-user"></i></a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact"><i class="fa-solid fa-bag-shopping"></i></a>
+               <!-- <li class="nav-item"><a class="nav-link" href="#contact"><i class="fa-solid fa-bag-shopping"></i></a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </a>
+                    <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                        <table id="lista-carrito" class="table">
+                            <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+
+                        <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
+                        <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
+                            Compra</a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -127,6 +148,15 @@
                         <div class="portfolio-caption-subheading text-muted">Jabón liquido de Moringa 500ml en empaque
                             de vidrio reutilizable
                         </div>
+                        <button type="button" class="btn btn-success btn-compra agregar-carrito" data-id="1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M17 17h-11v-14h-2" />
+                                <path d="M6 5l14 1l-1 7h-13" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -142,6 +172,15 @@
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">Jabón Líquido Embolsado</div>
                         <div class="portfolio-caption-subheading text-muted">Jabón</div>
+                        <button type="button" class="btn btn-success btn-compra agregar-carrito" data-id="2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M17 17h-11v-14h-2" />
+                                <path d="M6 5l14 1l-1 7h-13" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -157,6 +196,15 @@
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">Jabón Líquido Embolsado</div>
                         <div class="portfolio-caption-subheading text-muted">Jabón</div>
+                        <button type="button" class="btn btn-success btn-compra agregar-carrito" data-id="3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M17 17h-11v-14h-2" />
+                                <path d="M6 5l14 1l-1 7h-13" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>

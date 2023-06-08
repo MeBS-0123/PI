@@ -11279,3 +11279,8 @@ section#contact form#contactForm :-ms-input-placeholder {
   display: flex;
   justify-content: space-evenly !important;
 }
+.btn-compra{
+  margin: 1.5rem;
+  width: 50%;
+  border-radius: 100rem;
+}
