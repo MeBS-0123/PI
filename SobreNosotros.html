@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -18,57 +18,59 @@
     <link rel="stylesheet" href="css/sweetalert2.min.css">
 </head>
 <body id="page-top">
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="#page-top"><img src="img/Serolei.png" alt="logo"/></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars ms-1"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            CONÓCENOS
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="SobreNosotros.html">Sobre Nosotros</a></li>
-                          <li><a class="dropdown-item" href="#">Misión</a></li>
-                          <li><a class="dropdown-item" href="#">Visión</a></li>
-                        </ul>
-                      </li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#team">Seguimiento de Pedido</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-user"></i></a></li>
-                    <!-- <li class="nav-item"><a class="nav-link" href="#contact"><i class="fa-solid fa-bag-shopping"></i></a></li>-->
-                     <li class="nav-item dropdown">
-                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                             <i class="fa-solid fa-bag-shopping"></i>
-                         </a>
-                         <div id="carrito" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarCollapse">
-                             <table id="lista-carrito" class="table">
-                                 <thead>
-                                 <tr>
-                                     <th>Imagen</th>
-                                     <th>Nombre</th>
-                                     <th>Precio</th>
-                                     <th></th>
-                                 </tr>
-                                 </thead>
-                                 <tbody></tbody>
-                             </table>
-     
-                             <a id="vaciar-carrito" class="btn btn-primary btn-block container">Vaciar Carrito</a>
-                             <a id="procesar-pedido" class="btn btn-danger btn-block container">Procesar
-                                 Compra</a>
-                         </div>
-                     </li>
-                 </ul>
-             </div>
-         </div>
-     </nav>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="img/Serolei.png" alt="logo"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+
+                <li class="nav-item"><a class="nav-link" href="index.html">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link" href="#team">Seguimiento de Pedido</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        CONÓCENOS
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="SobreNosotros.html">Sobre Nosotros</a></li>
+                        <li><a class="dropdown-item" href="#mision">Misión</a></li>
+                        <li><a class="dropdown-item" href="#vision">Visión</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-user"></i></a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="#contact"><i class="fa-solid fa-bag-shopping"></i></a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </a>
+                    <div id="carrito" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarCollapse">
+                        <table id="lista-carrito" class="table">
+                            <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+
+                        <a id="vaciar-carrito" class="btn btn-primary btn-block container">Vaciar Carrito</a>
+                        <a id="procesar-pedido" class="btn btn-danger btn-block container">Procesar
+                            Compra</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <!--about-->
     <section class="page-section" id="about">
         <div class="container">
@@ -80,7 +82,7 @@
                 <li>
                     <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg"
                                                      alt="..."/></div>
-                    <div class="timeline-panel">
+                    <div class="timeline-panel" id="mision">
                         <div class="timeline-heading">
                             <h4>Misión</h4>
                         </div>
@@ -91,7 +93,7 @@
                         </div>
                     </div>
                 </li>
-                <li class="timeline-inverted">
+                <li class="timeline-inverted" id="vision">
                     <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg"
                                                      alt="..."/></div>
                     <div class="timeline-panel">

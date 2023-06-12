@@ -135,8 +135,16 @@ class Carrito {
                 showConfirmButton: false
             })
         }else {
-            location.href = "compra.html";
+            enviarMensaje();
         }
 
     }
+}
+function enviarMensaje() {
+    var numeroTelefono = "973039756";
+    var mensaje = encodeURIComponent("¡Hola! mi nombre es          .Estoy interesado en comprar el jabon de               . ¿Puedes darme más información?");
+    ("Me podrías mostrar más presentaciones");
+    var url = "https://api.whatsapp.com/send?phone=" + numeroTelefono + "&text=" + mensaje;
+
+    window.open(url, "_blank");
 }
