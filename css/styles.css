@@ -11258,7 +11258,7 @@ section#contact form#contactForm :-ms-input-placeholder {
   height: 3rem;
 }
 .img-header{
-  height: 40rem;
+  height: 33rem;
   padding: 0;
   margin: 0;
 }
@@ -11283,6 +11283,10 @@ section#contact form#contactForm :-ms-input-placeholder {
 #services{
   padding-top: 1rem !important;
 }
+.icon-1, .icon-2, .icon-3{
+  width: 80%;
+}
+
 .texto-servicio{
   font-family: var(--fuentePrimaria);
   font-weight: bold;
@@ -11303,4 +11307,9 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .btn-social{
   background-color: #283618;
+}
+
+/* Sobre Nosotros*/
+#about{
+  padding-top: 10rem;
 }
