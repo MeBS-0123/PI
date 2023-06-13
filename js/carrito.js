@@ -141,7 +141,7 @@ class Carrito {
     }
 }
 function enviarMensaje() {
-    var numeroTelefono = "973039756";
+    var numeroTelefono = "929802396";
     var mensaje = encodeURIComponent("¡Hola! mi nombre es          .Estoy interesado en comprar el jabon de               . ¿Puedes darme más información?");
     ("Me podrías mostrar más presentaciones");
     var url = "https://api.whatsapp.com/send?phone=" + numeroTelefono + "&text=" + mensaje;
