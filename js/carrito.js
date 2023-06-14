@@ -1,3 +1,4 @@
+//Medalith Becerril
 class Carrito {
     //Anadir el producto al carrito
     comprarProducto(e) {
@@ -140,8 +141,10 @@ class Carrito {
 
     }
 }
+
+//Jeninfer Valles
 function enviarMensaje() {
-    var numeroTelefono = "929802396";
+    var numeroTelefono = "949462686";
     var mensaje = encodeURIComponent("¡Hola! mi nombre es          .Estoy interesado en comprar el jabon de               . ¿Puedes darme más información?");
     ("Me podrías mostrar más presentaciones");
     var url = "https://api.whatsapp.com/send?phone=" + numeroTelefono + "&text=" + mensaje;
