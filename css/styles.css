@@ -11314,6 +11314,10 @@ section#contact form#contactForm :-ms-input-placeholder {
   border-radius: 100rem;
 }
 
+.btn-compra:hover{
+  background-color: #606c38;
+}
+
 .btn-social{
   background-color: #606c38;
 }
