@@ -10,7 +10,7 @@ function cargarEventos(){
     productos.addEventListener('click', (e)=>{carro.comprarProducto(e)});
     carrito.addEventListener('click', (e)=>{carro.eliminarProducto(e)});
     vaciarCarritoBtn.addEventListener('click', (e)=>{carro.vaciarCarrito(e)});
-    document.addEventListener('DOMContentLoaded', carro.leerLocalStorge());
+    document.addEventListener('DOMContentLoaded', carro.leerLocalStorage());
     procesarPedidoBtn.addEventListener('click', (e)=>{carro.procesarPedido(e)});
 
 }

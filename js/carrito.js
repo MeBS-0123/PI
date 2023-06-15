@@ -1,6 +1,6 @@
 //Medalith Becerril
 class Carrito {
-    //Anadir el producto al carrito
+    // Añadir el producto al carrito
     comprarProducto(e) {
         e.preventDefault();
         if (e.target.classList.contains('agregar-carrito')) {
@@ -8,54 +8,54 @@ class Carrito {
             this.leerDatosProductos(producto);
         }
     }
-    leerDatosProductos(producto){
+
+    leerDatosProductos(producto) {
         const infoProducto = {
-            imagen : producto.querySelector('img').src,
-            titulo : producto.querySelector('h4').textContent,
-            precio : producto.querySelector('.precio span').textContent,
-            id : producto.querySelector('a.btn-compra').getAttribute('data-id'),
-            cantidad : 1
-        }
-        let productosLS;
-        productosLS = this.obtenerProductosLocalStorage();
-        productosLS.forEach(function (productoLS){
-            if (productoLS.id === infoProducto.id){
-                productosLS = productoLS.id;
-            }
-        });
-        if (productosLS === infoProducto.id){
+            imagen: producto.querySelector('img').src,
+            titulo: producto.querySelector('h4').textContent,
+            precio: producto.querySelector('.precio span').textContent,
+            id: producto.querySelector('a.btn-compra').getAttribute('data-id'),
+            cantidad: 1,
+        };
+
+        let productosLS = this.obtenerProductosLocalStorage();
+
+        const productoExistente = productosLS.find((productoLS) => productoLS.id === infoProducto.id);
+
+        if (productoExistente) {
             Swal.fire({
                 icon: 'info',
                 title: 'Oops...',
-                text: 'El producto ya esta agregado',
+                text: 'El producto ya está agregado',
                 timer: 1000,
-                showConfirmButton: false
-            })
-        }else {
+                showConfirmButton: false,
+            });
+        } else {
             this.insertarCarrito(infoProducto);
         }
     }
 
-    insertarCarrito(producto){
+    insertarCarrito(producto) {
         const row = document.createElement('tr');
         row.innerHTML = `
-        <td>
-            <img src="${producto.imagen}" width=100>
-        </td>
-        <td>${producto.titulo}</td>
-        <td>${producto.precio}</td>
-        <td>
-            <a href="#" class="borrar-producto fas fa-times-circle" data-id="${producto.id}"></a>
-        </td>
-        `;
+      <td>
+        <img src="${producto.imagen}" width="100">
+      </td>
+      <td>${producto.titulo}</td>
+      <td>${producto.precio}</td>
+      <td>${producto.cantidad}</td>
+      <td>
+        <a href="#" class="borrar-producto fas fa-times-circle" data-id="${producto.id}"></a>
+      </td>
+    `;
         listaProductos.appendChild(row);
         this.guardarProductosLocalStorage(producto);
     }
 
-    eliminarProducto(e){
+    eliminarProducto(e) {
         e.preventDefault();
         let producto, productoID;
-        if (e.target.classList.contains('borrar-producto')){
+        if (e.target.classList.contains('borrar-producto')) {
             e.target.parentElement.parentElement.remove();
             producto = e.target.parentElement.parentElement;
             productoID = producto.querySelector('a').getAttribute('data-id');
@@ -63,38 +63,35 @@ class Carrito {
         this.eliminarProductoLocalStorage(productoID);
     }
 
-    vaciarCarrito(e){
+    vaciarCarrito(e) {
         e.preventDefault();
-        while (listaProductos.firstChild){
+        while (listaProductos.firstChild) {
             listaProductos.removeChild(listaProductos.firstChild);
         }
         this.vaciarLocalStorage();
         return false;
     }
 
-    guardarProductosLocalStorage(producto){
-        let productos;
-        productos = this.obtenerProductosLocalStorage();
+    guardarProductosLocalStorage(producto) {
+        let productos = this.obtenerProductosLocalStorage();
         productos.push(producto);
         localStorage.setItem('productos', JSON.stringify(productos));
     }
 
-    obtenerProductosLocalStorage(){
+    obtenerProductosLocalStorage() {
         let productoLS;
-        if(localStorage.getItem('productos')===null){
+        if (localStorage.getItem('productos') === null) {
             productoLS = [];
-        }
-        else{
+        } else {
             productoLS = JSON.parse(localStorage.getItem('productos'));
         }
         return productoLS;
     }
 
-    eliminarProductoLocalStorage(productoID){
-        let productoLS;
-        productoLS = this.obtenerProductosLocalStorage();
+    eliminarProductoLocalStorage(productoID) {
+        let productoLS = this.obtenerProductosLocalStorage();
         productoLS.forEach(function (productoLS, index) {
-            if(productoLS.id === productoID){
+            if (productoLS.id === productoID) {
                 productoLS.splice(index, 1);
             }
         });
@@ -102,46 +99,44 @@ class Carrito {
         localStorage.setItem('productos', JSON.stringify(productoLS));
     }
 
-    leerLocalStorge(){
-        let productosLS;
-        productosLS = this.obtenerProductosLocalStorage();
-        productosLS.forEach(function (producto){
+    leerLocalStorage() {
+        let productosLS = this.obtenerProductosLocalStorage();
+        productosLS.forEach(function (producto) {
             const row = document.createElement('tr');
             row.innerHTML = `
         <td>
-            <img src="${producto.imagen}" width=100>
+          <img src="${producto.imagen}" width="100">
         </td>
         <td>${producto.titulo}</td>
         <td>${producto.precio}</td>
+        <td>${producto.cantidad}</td>
         <td>
-            <a href="#" class="borrar-producto fas fa-times-circle" data-id="${producto.id}"></a>
+          <a href="#" class="borrar-producto fas fa-times-circle" data-id="${producto.id}"></a>
         </td>
-        `;
+      `;
             listaProductos.appendChild(row);
         });
     }
 
-    vaciarLocalStorage(){
+    vaciarLocalStorage() {
         localStorage.clear();
     }
 
-    procesarPedido(e){
+    procesarPedido(e) {
         e.preventDefault();
-        if(this.obtenerProductosLocalStorage().length === 0){
+        if (this.obtenerProductosLocalStorage().length === 0) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'El carrito esta vacío, agrega algun producto',
+                text: 'El carrito está vacío, agrega algún producto',
                 timer: 2000,
-                showConfirmButton: false
-            })
-        }else {
+                showConfirmButton: false,
+            });
+        } else {
             enviarMensaje();
         }
-
     }
 }
-
 //Jeninfer Valles
 function enviarMensaje() {
     var numeroTelefono = "949462686";
