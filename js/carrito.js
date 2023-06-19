@@ -1,148 +1,211 @@
-//Medalith Becerril
-class Carrito {
-    // Añadir el producto al carrito
-    comprarProducto(e) {
-        e.preventDefault();
-        if (e.target.classList.contains('agregar-carrito')) {
-            const producto = e.target.parentElement.parentElement;
-            this.leerDatosProductos(producto);
-        }
-    }
+// Variables
+const carrito = document.querySelector('#carrito');
+const listaProductos = document.querySelector('#portfolio');
+const contenedorCarrito = document.querySelector('#lista-carrito tbody');
+const vaciarCarritoBtn = document.querySelector('#vaciar-carrito');
+let articulosCarrito = [];
 
-    leerDatosProductos(producto) {
-        const infoProducto = {
-            imagen: producto.querySelector('img').src,
-            titulo: producto.querySelector('h4').textContent,
-            precio: producto.querySelector('.precio span').textContent,
-            id: producto.querySelector('a.btn-compra').getAttribute('data-id'),
-            cantidad: 1,
-        };
+// Listeners
+cargarEventListeners();
 
-        let productosLS = this.obtenerProductosLocalStorage();
+function cargarEventListeners() {
+    // Dispara cuando se presiona "Agregar Carrito"
+    listaProductos.addEventListener('click', agregarProducto);
 
-        const productoExistente = productosLS.find((productoLS) => productoLS.id === infoProducto.id);
+    // Cuando se elimina un curso del carrito
+    carrito.addEventListener('click', eliminarProducto);
 
-        if (productoExistente) {
-            Swal.fire({
-                icon: 'info',
-                title: 'Oops...',
-                text: 'El producto ya está agregado',
-                timer: 1000,
-                showConfirmButton: false,
-            });
-        } else {
-            this.insertarCarrito(infoProducto);
-        }
-    }
+    // Al Vaciar el carrito
+    vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
 
-    insertarCarrito(producto) {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-      <td>
-        <img src="${producto.imagen}" width="100">
-      </td>
-      <td>${producto.titulo}</td>
-      <td>${producto.precio}</td>
-      <td>${producto.cantidad}</td>
-      <td>
-        <a href="#" class="borrar-producto fas fa-times-circle" data-id="${producto.id}"></a>
-      </td>
-    `;
-        listaProductos.appendChild(row);
-        this.guardarProductosLocalStorage(producto);
-    }
 
-    eliminarProducto(e) {
-        e.preventDefault();
-        let producto, productoID;
-        if (e.target.classList.contains('borrar-producto')) {
-            e.target.parentElement.parentElement.remove();
-            producto = e.target.parentElement.parentElement;
-            productoID = producto.querySelector('a').getAttribute('data-id');
-        }
-        this.eliminarProductoLocalStorage(productoID);
-    }
+    // NUEVO: Contenido cargado
+    document.addEventListener('DOMContentLoaded', () => {
+        articulosCarrito = JSON.parse( localStorage.getItem('carrito') ) || []  ;
+        // console.log(articulosCarrito);
+        carritoHTML();
+    });
+}
 
-    vaciarCarrito(e) {
-        e.preventDefault();
-        while (listaProductos.firstChild) {
-            listaProductos.removeChild(listaProductos.firstChild);
-        }
-        this.vaciarLocalStorage();
-        return false;
-    }
 
-    guardarProductosLocalStorage(producto) {
-        let productos = this.obtenerProductosLocalStorage();
-        productos.push(producto);
-        localStorage.setItem('productos', JSON.stringify(productos));
-    }
-
-    obtenerProductosLocalStorage() {
-        let productoLS;
-        if (localStorage.getItem('productos') === null) {
-            productoLS = [];
-        } else {
-            productoLS = JSON.parse(localStorage.getItem('productos'));
-        }
-        return productoLS;
-    }
-
-    eliminarProductoLocalStorage(productoID) {
-        let productoLS = this.obtenerProductosLocalStorage();
-        productoLS.forEach(function (productoLS, index) {
-            if (productoLS.id === productoID) {
-                productoLS.splice(index, 1);
-            }
-        });
-
-        localStorage.setItem('productos', JSON.stringify(productoLS));
-    }
-
-    leerLocalStorage() {
-        let productosLS = this.obtenerProductosLocalStorage();
-        productosLS.forEach(function (producto) {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-        <td>
-          <img src="${producto.imagen}" width="100">
-        </td>
-        <td>${producto.titulo}</td>
-        <td>${producto.precio}</td>
-        <td>${producto.cantidad}</td>
-        <td>
-          <a href="#" class="borrar-producto fas fa-times-circle" data-id="${producto.id}"></a>
-        </td>
-      `;
-            listaProductos.appendChild(row);
-        });
-    }
-
-    vaciarLocalStorage() {
-        localStorage.clear();
-    }
-
-    procesarPedido(e) {
-        e.preventDefault();
-        if (this.obtenerProductosLocalStorage().length === 0) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'El carrito está vacío, agrega algún producto',
-                timer: 2000,
-                showConfirmButton: false,
-            });
-        } else {
-            enviarMensaje();
-        }
+// Función que añade el curso al carrito
+function agregarProducto(e) {
+    e.preventDefault();
+    // Delegation para agregar-carrito
+    if(e.target.classList.contains('agregar-carrito')) {
+        const producto = e.target.parentElement.parentElement;
+        // Enviamos el curso seleccionado para tomar sus datos
+        leerDatosCurso(producto);
     }
 }
-//Jeninfer Valles
+
+// Lee los datos del curso
+function leerDatosCurso(producto) {
+    const infoProducto = {
+        imagen: producto.querySelector('img').src,
+        titulo: producto.querySelector('h4').textContent,
+        precio: producto.querySelector('.precio span').textContent,
+        id: producto.querySelector('a.btn-compra').getAttribute('data-id'),
+        cantidad: 1
+    }
+
+
+    if( articulosCarrito.some( producto => producto.id === infoProducto.id ) ) {
+        const productos = articulosCarrito.map( producto => {
+            if( producto.id === infoProducto.id ) {
+                let cantidad = parseInt(producto.cantidad);
+                cantidad++
+                producto.cantidad =  cantidad;
+                return producto;
+            } else {
+                return producto;
+            }
+        })
+        articulosCarrito = [...productos];
+    }  else {
+        articulosCarrito = [...articulosCarrito, infoProducto];
+    }
+
+    console.log(articulosCarrito)
+
+
+
+    // console.log(articulosCarrito)
+    carritoHTML();
+}
+
+// Elimina el curso del carrito en el DOM
+function  eliminarProducto(e) {
+    e.preventDefault();
+    if(e.target.classList.contains('borrar-curso') ) {
+        // e.target.parentElement.parentElement.remove();
+        const producto = e.target.parentElement.parentElement;
+        const productoId = producto.querySelector('a').getAttribute('data-id');
+
+        // Eliminar del arreglo del carrito
+        articulosCarrito = articulosCarrito.filter(producto => producto.id !== productoId);
+
+        carritoHTML();
+    }
+}
+
+
+// Muestra el curso seleccionado en el Carrito
+function carritoHTML() {
+    vaciarCarrito();
+
+    let total = 0;
+
+    articulosCarrito.forEach(producto => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>
+                <img src="${producto.imagen}" width=100>
+            </td>
+            <td>${producto.titulo}</td>
+            <td>${producto.precio}</td>
+            <td>${producto.cantidad}</td>
+            <td>
+                <a href="#" class="borrar-curso" data-id="${producto.id}">X</a>
+            </td>
+        `;
+        contenedorCarrito.appendChild(row);
+
+        const precioProducto = parseFloat(producto.precio.replace('$', ''));
+        total += precioProducto * producto.cantidad;
+    });
+
+    document.querySelector('#total').textContent = `$${total.toFixed(2)}`;
+
+    sincronizarStorage();
+}
+
+// NUEVO:
+function sincronizarStorage() {
+    localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
+}
+
+function vaciarCarrito() {
+    // forma rápida (recomendada)
+    while (contenedorCarrito.firstChild) {
+        contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+    }
+    vaciarLocalStorage();
+
+    // Actualizar el total a cero
+    document.querySelector('#total').textContent = "$0.00";
+}
+
+function vaciarLocalStorage() {
+    localStorage.removeItem('carrito');
+}
+
+vaciarCarritoBtn.addEventListener('click', () => {
+    vaciarCarrito();
+    location.reload(); // Recargar la página
+});
+const procesarPedidoBtn = document.querySelector('#procesar-pedido');
+procesarPedidoBtn.addEventListener('click', procesarPedido);
+
+function procesarPedido() {
+    if (articulosCarrito.length === 0) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El carrito está vacío, agrega algún producto',
+            timer: 2000,
+            showConfirmButton: false,
+        });
+    }else{
+        enviarMensaje();
+    }
+}
+
 function enviarMensaje() {
-    var numeroTelefono = "949462686";
-    var mensaje = encodeURIComponent("¡Hola! mi nombre es          .Estoy interesado en comprar el jabon de               . ¿Puedes darme más información?");
-    ("Me podrías mostrar más presentaciones");
-    var url = "https://api.whatsapp.com/send?phone=" + numeroTelefono + "&text=" + mensaje;
+    const numeroTelefono = "929 802 396";
+    const productos = articulosCarrito.map(producto => {
+        return `${producto.titulo} (Cantidad: ${producto.cantidad}, Precio: ${producto.precio})`;
+    });
+    const totalPagar = calcularTotalPagar();
+    const mensaje = encodeURIComponent(`¡Hola! Estoy interesado en comprar ${productos.join(', ')}. El total a pagar es ${totalPagar}. ¿Puedes darme más información?`);
+    const url = `https://api.whatsapp.com/send?phone=${numeroTelefono}&text=${mensaje}`;
 
     window.open(url, "_blank");
 }
+
+function calcularTotalPagar() {
+    let total = 0;
+
+    articulosCarrito.forEach(producto => {
+        const precioProducto = parseFloat(producto.precio.replace('$', ''));
+        total += precioProducto * producto.cantidad;
+    });
+
+    return total.toFixed(2);
+}
+
+function obtenerProductosCarrito() {
+    return articulosCarrito.map(producto => {
+        return {
+            nombre: producto.titulo,
+            cantidad: producto.cantidad,
+            precio: producto.precio
+        };
+    });
+}
+function generarMensaje(productos) {
+    let mensaje = "¡Hola! Estoy interesado en comprar ";
+
+    productos.forEach((producto, index) => {
+        mensaje += `${producto.nombre} (Cantidad: ${producto.cantidad}, Precio: ${producto.precio})`;
+
+        if (index !== productos.length - 1) {
+            mensaje += ", ";
+        }
+    });
+
+    mensaje += ". ¿Puedes darme más información?";
+
+    return encodeURIComponent(mensaje);
+}
+

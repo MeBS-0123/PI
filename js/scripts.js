@@ -38,15 +38,17 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     };
 
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
+    $(document).ready(function () {
+        // Solucionar dropdowns en la navegación responsiva
+        $('.navbar-nav .dropdown-toggle').on('click', function (e) {
+            if ($(window).width() < 992) {
+                e.preventDefault();
+                var dropdownMenu = $(this).next('.dropdown-menu');
+                dropdownMenu.slideToggle();
+
+                // Cerrar otros dropdowns abiertos
+                var otherDropdownMenus = $('.navbar-nav .dropdown-menu').not(dropdownMenu);
+                otherDropdownMenus.slideUp();
             }
         });
     });

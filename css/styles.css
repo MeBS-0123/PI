@@ -4129,7 +4129,7 @@ textarea.form-control-lg {
   --bs-navbar-active-color: #fff;
   --bs-navbar-brand-color: #fff;
   --bs-navbar-brand-hover-color: #fff;
-  --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.1);
+  --bs-navbar-toggler-border-color: "rgba(255, 255, 255, 0.1)";
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
@@ -10830,7 +10830,7 @@ p {
 #mainNav {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #212529;
+  background-color: #283618;
 }
 #mainNav .navbar-toggler {
   padding: 0.75rem;
@@ -11271,6 +11271,10 @@ section#contact form#contactForm :-ms-input-placeholder {
   display: flex;
   justify-content: center;
 }
+.dropdown-menu th{
+  font-size: 0.6rem;
+}
+.
 @media (min-width: 468px) {
   .img-header{
     height: 33rem;
@@ -11290,6 +11294,9 @@ section#contact form#contactForm :-ms-input-placeholder {
     display: block;
     text-align: left;
   }
+  .dropdown-menu th{
+
+  }
 }
 @media (min-width: 768px) {
   .header-grid{
@@ -11306,6 +11313,9 @@ section#contact form#contactForm :-ms-input-placeholder {
   .section-heading{
     font-size: 2.5rem !important;
   }
+  .dropdown-menu th{
+    font-size: 1rem;
+  }
 }
 @media (min-width: 1200px) {
     .img-header{
@@ -11317,6 +11327,7 @@ section#contact form#contactForm :-ms-input-placeholder {
   .section-heading{
     font-size: 3rem !important;
   }
+
 }
 .section-heading{
   color: black;
@@ -11426,4 +11437,11 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .modal-content{
   padding: 1rem!important;
+}
+
+/* Carrito*/
+.total-carrito{
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: var(--bs-body-font-family);
 }
