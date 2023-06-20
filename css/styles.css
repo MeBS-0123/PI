@@ -11314,7 +11314,8 @@ section#contact form#contactForm :-ms-input-placeholder {
     font-size: 2.5rem !important;
   }
   .dropdown-menu th{
-    font-size: 1rem;
+    font-size: 0.8rem;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
   }
 }
 @media (min-width: 1200px) {
@@ -11440,7 +11441,20 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 /* Carrito*/
 .total-carrito{
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: bold;
-  font-family: var(--bs-body-font-family);
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.btn-reduce.btn-sm,
+.btn-increase.btn-sm,
+.lb-sm{
+  padding: 0.25rem 0.5rem;
+  font-size: 0.68rem;
+}
+.td-txt{
+  font-size: 0.7rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.x-borrar{
+  font-size: 0.8rem;
 }

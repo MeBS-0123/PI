@@ -92,6 +92,7 @@ function  eliminarProducto(e) {
 
 // Muestra el curso seleccionado en el Carrito
 function carritoHTML() {
+    // Vaciar el contenido previo del carrito
     vaciarCarrito();
 
     let total = 0;
@@ -99,16 +100,26 @@ function carritoHTML() {
     articulosCarrito.forEach(producto => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>
-                <img src="${producto.imagen}" width=100>
-            </td>
-            <td>${producto.titulo}</td>
-            <td>${producto.precio}</td>
-            <td>${producto.cantidad}</td>
-            <td>
-                <a href="#" class="borrar-curso" data-id="${producto.id}">X</a>
-            </td>
-        `;
+      <td>
+        <img src="${producto.imagen}" width="60">
+      </td>
+      <td class="td-txt">${producto.titulo}</td>
+      <td class="td-txt">${producto.precio}</td>
+      <td>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary btn-reduce btn-sm" data-id="${producto.id}">-</button>
+          </div>
+          <input type="text" class="form-control cantidad lb-sm" value="${producto.cantidad}">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary btn-increase btn-sm" data-id="${producto.id}">+</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <a href="#" class="borrar-curso x-borrar" data-id="${producto.id}">X</a>
+      </td>
+    `;
         contenedorCarrito.appendChild(row);
 
         const precioProducto = parseFloat(producto.precio.replace('$', ''));
@@ -118,6 +129,64 @@ function carritoHTML() {
     document.querySelector('#total').textContent = `$${total.toFixed(2)}`;
 
     sincronizarStorage();
+
+    // Agregar listeners a los botones de aumentar y reducir cantidad
+    const btnReduce = document.querySelectorAll('.btn-reduce');
+    const btnIncrease = document.querySelectorAll('.btn-increase');
+
+    btnReduce.forEach(btn => {
+        btn.addEventListener('click', reducirCantidad);
+    });
+
+    btnIncrease.forEach(btn => {
+        btn.addEventListener('click', aumentarCantidad);
+    });
+
+    function reducirCantidad(event) {
+        event.stopPropagation(); // Evitar que el evento se propague
+        const id = event.target.getAttribute('data-id');
+        const producto = encontrarProductoEnCarrito(id);
+
+        if (producto) {
+            if (producto.cantidad > 1) {
+                producto.cantidad--;
+            } else {
+                eliminarProductoDelCarrito(id);
+            }
+        }
+
+        carritoHTML();
+    }
+
+    function aumentarCantidad(event) {
+        event.stopPropagation(); // Evitar que el evento se propague
+        const id = event.target.getAttribute('data-id');
+        const producto = encontrarProductoEnCarrito(id);
+
+        if (producto) {
+            producto.cantidad++;
+        }
+
+        carritoHTML();
+    }
+
+    function encontrarProductoEnCarrito(id) {
+        return articulosCarrito.find(producto => producto.id === id);
+    }
+
+    function actualizarCantidadProducto(id, cantidad) {
+        articulosCarrito = articulosCarrito.map(producto => {
+            if (producto.id === id) {
+                producto.cantidad = cantidad;
+            }
+            return producto;
+        });
+    }
+
+    function eliminarProductoDelCarrito(id) {
+        articulosCarrito = articulosCarrito.filter(producto => producto.id !== id);
+    }
+
 }
 
 // NUEVO:
