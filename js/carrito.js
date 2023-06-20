@@ -208,4 +208,3 @@ function generarMensaje(productos) {
 
     return encodeURIComponent(mensaje);
 }
-

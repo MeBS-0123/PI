@@ -16,7 +16,6 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet"/>
 </head>
-<!--Medalith Becerril-->
 <body id="page-top">
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -43,7 +42,7 @@
                             <li><a class="dropdown-item" href="Historia.html">Nuestra Historia</a></li>
                         </ul>
                     </li>
-                <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-user"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="#footer"><i class="fas fa-user"></i></a></li>
                <!-- <li class="nav-item"><a class="nav-link" href="#contact"><i class="fa-solid fa-bag-shopping"></i></a></li>-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,7 +79,7 @@
             </div>
             <div class="header-txt">
                 <i class="fa-solid fa-pump-soap icon-soap"></i>
-                <h2 class="section-heading text-uppercase">Productos Artesanales 100% Naturales</h2>
+                <h2 class="section-heading">Productos Artesanales 100% Naturales</h2>
                 <div class="boton-header">
                     <button type="button" class="btn btn-success btn-header" onclick="window.location.href = './Productos.html'">Comprar</button>
                 </div>
@@ -92,8 +91,8 @@
 <section class="page-section" id="services">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Servicios</h2>
-            <h3 class="section-subheading text-muted">Conoce más sobre los servicios que ofrecemos</h3>
+            <h2 class="text-center section-heading text-uppercase">Servicios</h2>
+            <h3 class=" text-center section-subheading text-muted">Conoce más sobre los servicios que ofrecemos</h3>
         </div>
         <div class="row text-center">
             <div class="col-md-4">
@@ -124,82 +123,8 @@
     </div>
 </section>
 
-<!-- Contact-->
-<section class="page-section" id="contact">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Contactanos</h2>
-            <h3 class="section-subheading text-muted">Envía un mensaje y consulta sobre nosotros</h3>
-        </div>
-        <!-- * * * * * * * * * * * * * * *-->
-        <!-- * * SB Forms Contact Form * *-->
-        <!-- * * * * * * * * * * * * * * *-->
-        <!-- This form is pre-integrated with SB Forms.-->
-        <!-- To make this form functional, sign up at-->
-        <!-- https://startbootstrap.com/solution/contact-forms-->
-        <!-- to get an API token!-->
-        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-            <div class="row align-items-stretch mb-5">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <!-- Name input-->
-                        <input class="form-control" id="name" type="text" placeholder="Tu Nombre *"
-                               data-sb-validations="required"/>
-                        <div class="invalid-feedback" data-sb-feedback="name:required">El nombre es obligatorio</div>
-                    </div>
-                    <div class="form-group">
-                        <!-- Email address input-->
-                        <input class="form-control" id="email" type="email" placeholder="Tu Email *"
-                               data-sb-validations="required,email"/>
-                        <div class="invalid-feedback" data-sb-feedback="email:required">El correo es obligatorio</div>
-                        <div class="invalid-feedback" data-sb-feedback="email:email">Correo no válido</div>
-                    </div>
-                    <div class="form-group mb-md-0">
-                        <!-- Phone number input-->
-                        <input class="form-control" id="phone" type="tel" placeholder="Numero de teléfono *"
-                               data-sb-validations="required"/>
-                        <div class="invalid-feedback" data-sb-feedback="phone:required">El número es obligatorio
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group form-group-textarea mb-md-0">
-                        <!-- Message input-->
-                        <textarea class="form-control" id="message" placeholder="Tu mensaje *"
-                                  data-sb-validations="required"></textarea>
-                        <div class="invalid-feedback" data-sb-feedback="message:required">El mensaje es obligatorio</div>
-                    </div>
-                </div>
-            </div>
-            <!-- Submit success message-->
-            <!---->
-            <!-- This is what your users will see when the form-->
-            <!-- has successfully submitted-->
-            <div class="d-none" id="submitSuccessMessage">
-                <div class="text-center text-white mb-3">
-                    <div class="fw-bolder">Form submission successful!</div>
-                    To activate this form, sign up at
-                    <br/>
-                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                </div>
-            </div>
-            <!-- Submit error message-->
-            <!---->
-            <!-- This is what your users will see when there is-->
-            <!-- an error submitting the form-->
-            <div class="d-none" id="submitErrorMessage">
-                <div class="text-center text-danger mb-3">Error al enviar tu mensaje</div>
-            </div>
-            <!-- Submit Button-->
-            <div class="text-center">
-                <button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Enviar mensaje
-                </button>
-            </div>
-        </form>
-    </div>
-</section>
 <!-- Footer-->
-<footer class="footer py-4">
+<footer class="footer py-4" id="footer">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-4 text-lg-start"> &copy; 2023 Jabones Artesanales Naturales</div>
@@ -210,6 +135,8 @@
                         class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-dark btn-social mx-2" href="https://www.tiktok.com/@serolei?is_from_webapp=1&sender_device=pc" target="_blank" aria-label="TikTok"><i
                         class="fab fa-tiktok"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="https://api.whatsapp.com/send?phone=929802396" target="_blank" aria-label="WhatsApp"><i
+                        class="fab fa-whatsapp"></i></a>
             </div>
             <div class="col-lg-4 text-lg-end">
                 <a class="link-dark text-decoration-none" href="#!">Serolei</a>

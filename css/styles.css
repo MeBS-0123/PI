@@ -11274,7 +11274,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 .dropdown-menu th{
   font-size: 0.6rem;
 }
-.
+
 @media (min-width: 468px) {
   .img-header{
     height: 33rem;
@@ -11339,7 +11339,6 @@ section#contact form#contactForm :-ms-input-placeholder {
 .header-txt h2{
   padding-top: 1.5rem;
   font-size: 3.1rem;
-  text-transform: uppercase;
 }
 .boton-header{
   padding-top: 1.5rem;
