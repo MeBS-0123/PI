@@ -277,3 +277,31 @@ function generarMensaje(productos) {
 
     return encodeURIComponent(mensaje);
 }
+
+// Obtén una referencia al elemento del botón que abre/cierra el carrito
+const carritoToggle = document.querySelector('.dropdown-toggle');
+
+// Obtén una referencia al elemento del menú desplegable del carrito
+const carritoMenu = document.querySelector('.dropdown-menu');
+
+// Agrega un controlador de eventos al botón del carrito para detener la propagación del clic
+carritoToggle.addEventListener('click', function (event) {
+    event.stopPropagation();
+});
+
+// Agrega un controlador de eventos al menú del carrito para detener la propagación del clic
+carritoMenu.addEventListener('click', function (event) {
+    event.stopPropagation();
+});
+
+// Agrega un controlador de eventos al documento para detectar clics en cualquier parte
+document.addEventListener('click', function (event) {
+    // Verifica si el carrito está abierto y si el clic se hizo fuera del carrito
+    const isCarritoOpen = carritoMenu.classList.contains('show');
+    const isClickedOutsideCarrito = !carritoMenu.contains(event.target) && event.target !== carritoToggle;
+
+    // Si el carrito está abierto y el clic se hizo fuera del carrito, ciérralo
+    if (isCarritoOpen && isClickedOutsideCarrito) {
+        carritoToggle.click(); // Simula un clic en el botón del carrito para cerrarlo
+    }
+});

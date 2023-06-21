@@ -29,20 +29,11 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                 </li>
-                <li class="nav-item"><a class="nav-link" href="Productos.html">Productos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
-                <li class="nav-item dropdown">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            CONÓCENOS
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="SobreNosotros.html">Sobre Nosotros</a></li>
-                            <li><a class="dropdown-item" href="NuestroEquipo.html">Nuestro Equipo</a></li>
-                            <li><a class="dropdown-item" href="Historia.html">Nuestra Historia</a></li>
-                        </ul>
-                    </li>
-                <li class="nav-item"><a class="nav-link" href="#footer"><i class="fas fa-user"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">Sobre Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="#Hist">Nuestra Historia</a></li>
+                <li class="nav-item"><a class="nav-link" href="#team">Nuestro Equipo</a></li>
                <!-- <li class="nav-item"><a class="nav-link" href="#contact"><i class="fa-solid fa-bag-shopping"></i></a></li>-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,15 +46,17 @@
                                 <th>Imagen</th>
                                 <th>Nombre</th>
                                 <th>Precio</th>
+                                <th>Cantidad</th>
+
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody></tbody>
                         </table>
-
-                        <a id="vaciar-carrito" class="btn btn-primary btn-block container">Vaciar Carrito</a>
-                        <a id="procesar-pedido" class="btn btn-danger btn-block container">Procesar
+                        <h2 class="text-center total-carrito">TOTAL: <span id="total"></span></h2>
+                        <a id="procesar-pedido" class="btn btn-success btn-block container">Procesar
                             Compra</a>
+                        <a id="vaciar-carrito" class="btn btn-outline-secondary">Vaciar Carrito</a>
                     </div>
                 </li>
             </ul>
@@ -78,10 +71,10 @@
                 <img class="img-header" src="img/image490.png" alt="imagen Header">
             </div>
             <div class="header-txt">
-                <i class="fa-solid fa-pump-soap icon-soap"></i>
+                <i class="fa-solid fa-leaf fa-2xl" style="color: #273617;"></i>
                 <h2 class="section-heading">Productos Artesanales 100% Naturales</h2>
                 <div class="boton-header">
-                    <button type="button" class="btn btn-success btn-header" onclick="window.location.href = './Productos.html'">Comprar</button>
+                    <button type="button" class="btn btn-success btn-header" onclick="window.location.href = '#portfolio'">Comprar</button>
                 </div>
             </div>
         </div>
@@ -97,31 +90,316 @@
         <div class="row text-center">
             <div class="col-md-4">
                         <span class="fa-stack fa-4x">
-                            <img class="icon-1" src="img/iconos/icon-mano.png" alt="icon">
+                            <i class="fas fa-solid fa-seedling" style="color: #273617;"></i>
                         </span>
                 <h4 class="my-3 texto-servicio">Producto 100% artesanal
                 </h4>
                 <p class="text-muted">El jabón líquido artesanal Olei es hecho 100% a base de productos y extractos
-                    naturales, brindando un valor agregado a la piel</p>
+                    naturales, brindando un valor agregado a la piel.</p>
             </div>
             <div class="col-md-4">
                         <span class="fa-stack fa-4x">
-                            <img class="icon-2" src="img/iconos/icon-camion.png" alt="icon">
+                            <i class="fas fa-solid fa-truck-fast" style="color: #273617;"></i>
                         </span>
                 <h4 class="my-3 texto-servicio">Envíos nacionales</h4>
-                <p class="text-muted">Garantizamos envíos a todo el Perú. Con entrega confiable y segura</p>
+                <p class="text-muted">Garantizamos envíos a todo el Perú. Con entrega confiable y segura.</p>
             </div>
             <div class="col-md-4">
                         <span class="fa-stack fa-4x">
-                            <img class="icon-3" src="img/iconos/icon-card.png" alt="icon">
+                            <i class="fas fa-solid fa-credit-card" style="color: #273617;"></i>
                         </span>
                 <h4 class="my-3 texto-servicio">Pagos Seguros</h4>
                 <p class="text-muted">Brindamos la tranquilidad y confianza de contar con un sistema de pagos
                     seguros.</p>
             </div>
         </div>
+        <div class="video">
+            <div class="video-1" style="flex: 1;">
+                <video  width="640" height="360" controls>
+                    <source src="Video/Moringa.mp4" type="video/mp4">
+                </div>
+            <div class="video-2" style="flex: 1;">
+                <video width="640" height="360" controls>
+                    <source src="Video/Olei.mp4" type="video/mp4">
+            </div>
+        </div>
+        
     </div>
 </section>
+
+<!-- Portfolio Grid-->
+<section class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase text-center">Nuestros Productos </h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        <div class="row portafolio" id="lista-productos">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 1-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="img/Productos/jabones liquidos.png" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">
+                            <h4>Jabón Líquido</h4>
+                        </div>
+                        <div class="portfolio-caption-subheading text-muted">
+                        </div>
+                        <h1 class="card-title pricing-card-title precio">S/. <span class="">27</span></h1>
+                        <a href="" class="btn btn-block btn-success btn-compra agregar-carrito"
+                            data-id="1">Comprar</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart"
+                            width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                            <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                            <path d="M17 17h-11v-14h-2" />
+                            <path d="M6 5l14 1l-1 7h-13" />
+                        </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 2-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="img/Productos/serum.png" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">
+                            <h4>Serúm de Moringa</h4>
+                        </div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                        <h1 class="card-title pricing-card-title precio">S/. <span class="">38</span></h1>
+                        <a href="" class="btn btn-block btn-success btn-compra agregar-carrito"
+                            data-id="2">Comprar</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart"
+                            width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                            <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                            <path d="M17 17h-11v-14h-2" />
+                            <path d="M6 5l14 1l-1 7h-13" />
+                        </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+        <div class="row portafolio" id="lista-productos">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 3-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="img/Productos/mascarilla.png" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">
+                            <h4>Mascarrilla Olei</h4>
+                        </div>
+                        <div class="portfolio-caption-subheading text-muted">
+                        </div>
+                        <h1 class="card-title pricing-card-title precio">S/. <span class="">12</span></h1>
+                        <a href="" class="btn btn-block btn-success btn-compra agregar-carrito"
+                            data-id="3">Comprar</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart"
+                            width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                            <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                            <path d="M17 17h-11v-14h-2" />
+                            <path d="M6 5l14 1l-1 7h-13" />
+                        </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 4-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="img/Productos/crema hidratante.png" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">
+                            <h4>Crema Hidratante</h4>
+                        </div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                        <h1 class="card-title pricing-card-title precio">S/. <span class="">15</span></h1>
+                        <a href="" class="btn btn-block btn-success btn-compra agregar-carrito"
+                            data-id="4">Comprar</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart"
+                            width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                            <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                            <path d="M17 17h-11v-14h-2" />
+                            <path d="M6 5l14 1l-1 7h-13" />
+                        </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--about-->
+<section class="page-section" id="about">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="text-center section-heading text-uppercase">SOBRE NOSOTROS</h2>
+            <h3 class="text-center section-subheading text-muted">Conoce más de nuestra empresa</h3>
+        </div>
+        <ul class="timeline">
+            <li>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="img/About/vision.png"
+                                                 alt="..."/></div>
+                <div class="timeline-panel" id="mision">
+                    <div class="timeline-heading">
+                        <h4>Misión</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Somos una empresa pionera en la Región San Martín,
+                        dedicada a la fabricación y venta de productos artesanales a base del aceite de la hoja de la
+                        moringa, con esencia natural que conectan con la madre naturaleza y brindan beneficios a la
+                        piel.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted" id="vision">
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="img/About/Mision.png"
+                                                 alt="..."/></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Visión</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Ser una empresa líder en el mercado para el año
+                        2028, dedicada a la fabricación de productos sustentables y ecológicos de higiene personal que
+                        brinden beneficios a la piel.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="img/About/valores.png"
+                                                 alt="..."/></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Valores</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Compromiso, sustentabilidad e impacto social y
+                        pasión </p></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!--Historia-->
+<section class="page-section bg-light" id="Hist">
+<div class="container">
+    <div class="text-center">
+        <br>
+        <h1 class="text-center">Pequeña Reseña Histórica</h1>
+        <br>
+        <p class="justify-content">En el año 2023, la industria de productos para el cuidado de la piel fue testigo del surgimiento de una empresa innovadora llamada Serolei, cuyo nombre viene del origen de las palabras «ser» de identidad y «olei» de oleifera, la cual es abreviatura del nombre de la moringa oleifera, donde el epíteto específico oleifera, significa “portador de aceite”; esta empresa tuvo sus raíces en la visión y el espíritu emprendedor de tres estudiantes de marketing, Antuanet García, Kiara Tineo y Liliana Silva, que compartían interés por el cuidado de la piel y el bienestar personal, con el nombre que escogieron, buscaron transmitir y reflejar su identidad como empresa, así como mostrar la capacidad productora de aceite que posee la planta y la esencia consistente que tendrá en el producto.
+            Conscientes de la necesidad de brindar beneficios reales a la piel y fortalecerla, también gracias a que observaron las secuelas que dejó la pandemia de COVID-19 en todo el mundo, y cómo está experiencia llevó a las personas a cuidar mejor su salud y bienestar, estas tres chicas tuvieron el objetivo principal de desarrollar productos que sean efectivos, seguros y naturales, que apoyan a la salud y vitalidad de la piel.  
+            Las tres emprendedoras, firmes creyentes en Dios, se aseguran de que cada preparación de sus jabones líquidos tenga un aroma agradable y sea exitosa en el olfato de sus clientes. Su fe y paciencia han sido fundamentales para alcanzar sus metas y han llevado a Serolei a convertirse en una de las empresas más reconocidas y respetadas en la industria del cuidado de la piel dentro de la región San Martín. Su enfoque en la calidad, la innovación y la preocupación por la salud de la piel ha ganado la confianza de numerosos consumidores. Serolei continúa expandiendo su línea de productos e investigará nuevos avances para el cuidado de la piel.
+        </p>
+    </div>
+</div>
+</section>
+
+<!-- Team-->
+<section class="page-section bg-light" id="team">
+<div class="container">
+    <div class="text-center">
+        <h2 class="text-center section-heading text-uppercase">Conoce a nuestro Equipo</h2>
+        <h3 class="text-center section-subheading text-muted"></h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="team-member">
+                <img class="mx-auto rounded-circle" src="img/team/Antuanet.png" alt="..." />
+                <h4>Gerencia general</h4>
+                <p class="text-muted">Antuanet García</p>
+                <a class="btn btn-dark btn-social mx-2" href="https://instagram.com/antuanet_garcia?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" aria-label="Antuanet García Instagram Profile"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="team-member">
+                <img class="mx-auto rounded-circle" src="img/team/kiara.png" alt="..." />
+                <h4>Gerencia Administrativa</h4>
+                <p class="text-muted">Kiara Tineo</p>
+                <a class="btn btn-dark btn-social mx-2" href="https://instagram.com/kiaratineo_?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" aria-label="Kiara Tineo Instagram Profile"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="team-member">
+                <img class="mx-auto rounded-circle" src="img/team/Liliana.png" alt="..." />
+                <h4>Gerencia de Mercadotécnia</h4>
+                <p class="text-muted">Liliana Silva</p>
+                <a class="btn btn-dark btn-social mx-2" href="https://instagram.com/lili_24_tt?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" aria-label="Liliana Silva Instagram Profile"><i class="fab fa-instagram"></i></a>
+                
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="team-member">
+                <img class="mx-auto rounded-circle" src="img/team/Medalith.png" alt="..." />
+                <h4>Gerencia de Sistemas</h4>
+                <p class="text-muted">Medalith Becerril</p>
+                
+                <a class="btn btn-dark btn-social mx-2" href="https://instagram.com/medalith_becerril?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" aria-label="Medalith Becerril Instagram Profile"><i class="fab fa-instagram"></i></a>
+                
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="team-member">
+                <img class="mx-auto rounded-circle" src="img/team/Jeninfer.png" alt="..." />
+                <h4>Diseñador Web</h4>
+                <p class="text-muted">Jeninfer Valles</p>
+                
+                <a class="btn btn-dark btn-social mx-2" href="https://instagram.com/jeninfer_18?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" aria-label="Jeninfer Valles Instagram Profile"><i class="fab fa-instagram"></i></a>
+                
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="team-member">
+                <img class="mx-auto rounded-circle" src="img/team/Sergio.png" alt="..." />
+                <h4>Soporte Técnico</h4>
+                <p class="text-muted">Sergio Cachique</p>
+                
+                <a class="btn btn-dark btn-social mx-2" href="https://instagram.com/sergio._.rodas?igshid=YmM0MjE2YWMzOA==" target="_blank" aria-label="Sergio Cachique Instagram Profile"><i class="fab fa-instagram"></i></a>
+                
+            </div>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Equipo Colaborativo de la empresa Serolei</p></div>
+        </div>      
+</div>
+</section>
+
 
 <!-- Footer-->
 <footer class="footer py-4" id="footer">
@@ -135,7 +413,7 @@
                         class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-dark btn-social mx-2" href="https://www.tiktok.com/@serolei?is_from_webapp=1&sender_device=pc" target="_blank" aria-label="TikTok"><i
                         class="fab fa-tiktok"></i></a>
-                <a class="btn btn-dark btn-social mx-2" href="https://api.whatsapp.com/send?phone=929802396" target="_blank" aria-label="WhatsApp"><i
+                <a class="btn btn-dark btn-social mx-2" href="https://api.whatsapp.com/send?phone=955076452" target="_blank" aria-label="WhatsApp"><i
                         class="fab fa-whatsapp"></i></a>
             </div>
             <div class="col-lg-4 text-lg-end">
@@ -156,26 +434,25 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project details-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/1.jpg" alt="..."/>
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
+                            <h2 class="text-uppercase">Jabón Líquido</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="img/Productos/jabones liquidos.png" alt="..."/>
+                            <p>Producto hecho a base de productos 100% naturales, teniendo como elemento principal
+                                la moringa, la cual es una planta que tiene grandes beneficios para la piel, hidratando
+                                y nutriendo la piel, además de tener propiedades antiinflamatorias y antibacterianas.</p>
                             <ul class="list-inline">
                                 <li>
-                                    <strong>Client:</strong>
-                                    Threads
+                                    <strong>Cantidad:</strong>
+                                    500ml
                                 </li>
                                 <li>
-                                    <strong>Category:</strong>
-                                    Illustration
+                                    <strong>Envase:</strong>
+                                    Vidrio
                                 </li>
                             </ul>
                             <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                 <i class="fas fa-xmark me-1"></i>
-                                Close Project
+                                Cerrar ventana
                             </button>
                         </div>
                     </div>
@@ -195,20 +472,20 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project details-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/2.jpg" alt="..."/>
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
+                            <h2 class="text-uppercase">Serúm de Moringa</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="img/Productos/serum.png" alt="..."/>
+                            <p> Producto hecho a base de productos 100% naturales, teniendo como elemento principal
+                                la moringa, la cual es una planta que tiene grandes beneficios para la piel, hidratando
+                                y nutriendo la piel, además de tener propiedades antiinflamatorias y antibacterianas.
+                            </p>
                             <ul class="list-inline">
                                 <li>
-                                    <strong>Client:</strong>
+                                    <strong>Cantidad:</strong>
                                     Explore
                                 </li>
                                 <li>
-                                    <strong>Category:</strong>
+                                    <strong>Envase:</strong>
                                     Graphic Design
                                 </li>
                             </ul>
@@ -234,13 +511,12 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project details-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/3.jpg" alt="..."/>
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
+                            <h2 class="text-uppercase">Mascarrilla Olei</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="img/Productos/mascarilla.png" alt="..."/>
+                            <p>Producto hecho a base de productos 100% naturales, teniendo como elemento principal
+                                la moringa, la cual es una planta que tiene grandes beneficios para la piel, hidratando
+                                y nutriendo la piel, además de tener propiedades antiinflamatorias y antibacterianas.</p>
                             <ul class="list-inline">
                                 <li>
                                     <strong>Client:</strong>
@@ -273,20 +549,19 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project details-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/4.jpg" alt="..."/>
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
+                            <h2 class="text-uppercase">Crema Hidratante</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="img/Productos/crema hidratante.png" alt="..."/>
+                            <p>Producto hecho a base de productos 100% naturales, teniendo como elemento principal
+                                la moringa, la cual es una planta que tiene grandes beneficios para la piel, hidratando
+                                y nutriendo la piel, además de tener propiedades antiinflamatorias y antibacterianas.</p>
                             <ul class="list-inline">
                                 <li>
-                                    <strong>Client:</strong>
+                                    <strong>Cantidad:</strong>
                                     Lines
                                 </li>
                                 <li>
-                                    <strong>Category:</strong>
+                                    <strong>Envasado:</strong>
                                     Branding
                                 </li>
                             </ul>
@@ -389,7 +664,7 @@
 <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<script src="js/sweetalert2.min.js"></script>
 <script src="js/carrito.js"></script>
-
 </body>
 </html>
