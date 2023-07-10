@@ -1,6 +1,6 @@
 // Variables
-const carrito = document.querySelector('#carrito');
-const listaProductos = document.querySelector('#portfolio');
+const carrito = document.querySelector('#carrito'); // Selecciona el id carrito
+const listaProductos = document.querySelector('#portfolio'); // Selecciona el id portfolio
 const contenedorCarrito = document.querySelector('#lista-carrito tbody');
 const vaciarCarritoBtn = document.querySelector('#vaciar-carrito');
 let articulosCarrito = [];
@@ -9,20 +9,19 @@ let articulosCarrito = [];
 cargarEventListeners();
 
 function cargarEventListeners() {
-    // Dispara cuando se presiona "Agregar Carrito"
+    
     listaProductos.addEventListener('click', agregarProducto);
 
-    // Cuando se elimina un curso del carrito
     carrito.addEventListener('click', eliminarProducto);
 
-    // Al Vaciar el carrito
+    
     vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
 
 
-    // NUEVO: Contenido cargado
+    
     document.addEventListener('DOMContentLoaded', () => {
         articulosCarrito = JSON.parse( localStorage.getItem('carrito') ) || []  ;
-        // console.log(articulosCarrito);
+        
         carritoHTML();
     });
 }
@@ -70,7 +69,6 @@ function leerDatosCurso(producto) {
 
 
 
-    // console.log(articulosCarrito)
     carritoHTML();
 }
 
@@ -78,7 +76,7 @@ function leerDatosCurso(producto) {
 function  eliminarProducto(e) {
     e.preventDefault();
     if(e.target.classList.contains('borrar-curso') ) {
-        // e.target.parentElement.parentElement.remove();
+        
         const producto = e.target.parentElement.parentElement;
         const productoId = producto.querySelector('a').getAttribute('data-id');
 
@@ -235,8 +233,9 @@ function enviarMensaje() {
     const productos = articulosCarrito.map(producto => {
         return `${producto.titulo} (Cantidad: ${producto.cantidad}, Precio: ${producto.precio})`;
     });
+    const productosTexto = productos.join(',\n');
     const totalPagar = calcularTotalPagar();
-    const mensaje = encodeURIComponent(`¡Hola! Estoy interesado en comprar ${productos.join(', ')}. El total a pagar es ${totalPagar}. ¿Puedes darme más información?`);
+    const mensaje = encodeURIComponent(`¡Hola! Estoy interesado en comprar:\n\n${productosTexto}.\n\nEl total a pagar es ${totalPagar}. ¿Puedes darme más información?`);
     const url = `https://api.whatsapp.com/send?phone=${numeroTelefono}&text=${mensaje}`;
 
     window.open(url, "_blank");
